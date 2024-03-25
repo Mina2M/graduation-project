@@ -46,7 +46,7 @@ export const createStripe = async(req, res)=>{
             })
             // res.json({id: session.id})
             // res.json({url: session})
-            res.status(200).json({success:true, message:'Your appointment is booked', url: session})
+            res.status(200).json({success:true, message:'Your appointment is booked', data:savedBooking, url: session})
 
             console.log('done')
     } catch (error) {

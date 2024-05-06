@@ -5,7 +5,9 @@ const getNotification = async (req, res) => {
     try {
         console.log('user-id', req.userId)
         const notifications = await Notification.find({user: req.userId})
-        res.status(200).json(notifications)
+        // res.status(200).json(notifications)
+        res.status(200).json({success: true, message:'Successful', data:notifications})
+
     } catch (err) {
         res.status(500).json({ err: 'failed to get notification' })
     }
@@ -23,7 +25,7 @@ const addNotification = async (req, res) => {
 
         await notification.save()
 
-        res.status(201).json({ msg: 'created ok', data: booking })
+        res.status(201).json({ msg: 'created ok', data: notification })
     } catch (err) {
         res.status(500).json({ err: 'failed to create notification' })
     }

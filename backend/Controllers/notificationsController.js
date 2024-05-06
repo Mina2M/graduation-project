@@ -3,7 +3,8 @@ import Notification from "../models/NotificationSchema.js"
 
 const getNotification = async (req, res) => {
     try {
-        const notifications = await Notification.find({})
+        console.log('user-id', req.userId)
+        const notifications = await Notification.find({user: req.userId})
         res.status(200).json(notifications)
     } catch (err) {
         res.status(500).json({ err: 'failed to get notification' })

@@ -2,9 +2,13 @@ import express from "express";
 import {updateUser, deleteUser, getSingleUser, getAllUser, getUserProfile, getAdminProfile, getMyAppointments, getStats} from '../Controllers/userController.js';
 
 import { authenticate, restrict } from "../auth/verifyToken.js";
+import { askChatbot } from "../Controllers/chatbotController.js";
+
+
 
 
 const router = express.Router()
+router.post('/answers', askChatbot)
 router.get('/stats', getStats)
 // router.get('/:id', authenticate, restrict(['patient']), getSingleUser)
 

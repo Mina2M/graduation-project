@@ -14,15 +14,5 @@ const notificationSchema = new mongoose.Schema(
   { timestamps: true }
 );
  
-// execute before any query string
-// notificationSchema.pre(/^find/, function(next){
-//   this.populate({
-//     path: 'user',
-//     select: 'name email photo'
-//   });
-
-//   next();
-// })
-
 
 export default mongoose.model("Notification", notificationSchema);

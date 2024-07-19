@@ -5,10 +5,6 @@ import { authContext } from '../context/AuthContext';
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const { token, role } = useContext(authContext)
 
-    // console.log('*********** look with me')
-    // console.log(role)
-    // console.log('*********** look with me')
-
     const isAllowed = allowedRoles.includes(role)
     const accessibleRoute = token && isAllowed ? children : <Navigate to='/login' replace={true} />
 

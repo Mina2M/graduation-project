@@ -2,8 +2,6 @@ import Booking from "../models/BookingSchema.js";
 import Doctor from '../models/DoctorSchema.js'
 import User from '../models/UserSchema.js'
 import moment from 'moment'; 
-// import Stripe from 'stripe';
-// const stripe = Stripe(process.env.SECRET_STRIPE_KEY);
 import Stripe from 'stripe';
 const stripe = new Stripe('sk_test_51Nn1CqBiVEj2MdDU7mkyeors2mj34eB96aajsVJvbofA1g6mIRTWVs26uCPkGaZ7uqaFs3W4vxp5YdZsDmmH7eHq00f9CkjtP7');
 
@@ -13,7 +11,6 @@ export const createStripe = async(req, res)=>{
     const newBooking = new Booking(req.body)
    
     const doctor = await Doctor.findById(req.params.doctorId )
-    // const newBooking = new Booking(req.body)
     console.log(doctor) 
     console.log(process.env.SECRET_STRIPE_KEY)
     console.log(newBooking.ticketPrice)
@@ -44,8 +41,6 @@ export const createStripe = async(req, res)=>{
             success_url: "http://localhost:5173/success",
             cancel_url: "http://localhost:5173/cancel",
             })
-            // res.json({id: session.id})
-            // res.json({url: session})
             res.status(200).json({success:true, message:'Your appointment is booked', data:savedBooking, url: session})
 
             console.log('done')
@@ -187,17 +182,7 @@ export const createBooking = async(req, res)=>{
     }
 };
 
-// export const getBooking = async(req, res)=>{
-//     const id = req.params.id
 
-//     try {
-//         const book = await Booking.findById(id)
-
-//         res.status(200).json({success:true, message:'successful', data:book})
-//     } catch (err) {
-//         res.status(404).json({success:true, message:'not found'})
-//     }
-// }
 export const updateBooking = async(req, res)=>{
     const id = req.params.id
 

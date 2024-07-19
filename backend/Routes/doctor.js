@@ -13,9 +13,7 @@ router.use('/:doctorId/bookings', bookRouter)
 
 
 router.get('/', getAllDoctor)
-// router.put('/:id', authenticate, restrict(["doctor"]), updateDoctor)
 router.put('/:id', updateDoctor)
-// router.delete('/:id', authenticate, restrict(["doctor"]), deleteDoctor)
 router.delete('/:id', deleteDoctor)
 router.get('/admin', getAllDoctorForAdmin)
 router.get('/:id', getSingleDoctor)

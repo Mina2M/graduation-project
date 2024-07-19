@@ -27,7 +27,6 @@ import Appointment from '../dashboard/Details/Appointment'
 import UserProfile from '../dashboard/Details/UserProfile'
 import AppointmentList from '../dashboard/admin-account/list/AppointmentList'
 import MessageList from '../dashboard/admin-account/list/MessageList'
-// import CreateDoctor from '../dashboard/admin-account/CreateDoctor'
 
 const Routers = () => {
     return <Routes>
@@ -42,7 +41,6 @@ const Routers = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/model" element={<ModelPage />} />
         <Route path="/doctors/:id" element={<DoctorDetails />} />
-        {/* <Route path="/users/:id" element={<UserProfile />} /> */}
 
 
         {/* admin-dashboard */}
@@ -52,9 +50,7 @@ const Routers = () => {
         <Route path="/admin-dashboard/" element={<AdminDashboard />}>
             <Route path="doctors" element={<DoctorsDash />}>
                 <Route index element={<DoctorList />} />
-                {/* <Route path="create-doctor" element={<CreateDoctor />} /> */}
 
-                {/* <Route path="create-doctor" element={<Dashboard />} /> */}
             </Route>
             <Route path='' element={<Navigate to="summary" />} />
             <Route path="summary" element={<Summary />} />
